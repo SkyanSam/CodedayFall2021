@@ -25,3 +25,12 @@ func _process(delta):
 	var top_mat = SpatialMaterial.new()
 	top_mat.albedo_texture = top_wall_texture
 	$TopFace.material_override = top_mat
+
+func break(t):
+	yield(get_tree().create_timer(t),"timeout")
+	$AnimationPlayer.play("Block Break")
+	get_node("TopFace Break").visible = true
+	get_node("LeftFace Break").visible = true
+	get_node("RightFace Break").visible = true
+	yield(get_tree().create_timer(1.5),"timeout")
+	queue_free()
