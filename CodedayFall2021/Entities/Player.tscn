@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Entities/Player.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.466667, 0.0784314, 0.0784314, 1 )
+metallic = 0.28
+
+[sub_resource type="CubeMesh" id=10]
+material = SubResource( 9 )
+
+[sub_resource type="Skin" id=11]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 1, 0.425693 )
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.484, -36.1205, 2.60187, 0 )
+script = ExtResource( 1 )
+
+[node name="body" type="MeshInstance" parent="."]
+transform = Transform( 0.32, 0, 0, 0, 0.742, 0, 0, 0, 0.5, -0.374844, 0, -1.02127 )
+mesh = SubResource( 10 )
+skin = SubResource( 11 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.32, 0, 0, 0, 0.742, 0, 0, 0, 1.2, -0.37226, 0.00331402, -1.00746 )
+shape = SubResource( 3 )
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.431187, -0.494289, -1.0078 )
+enabled = true
+cast_to = Vector3( 0, -0.5, 0 )
+debug_shape_custom_color = Color( 0.121569, 0.698039, 0.92549, 1 )
+debug_shape_thickness = 5.0
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.914551, 0.404471, 0, -0.835684, 1.88957, 0.166538, 6.25676, 25.5792 )
