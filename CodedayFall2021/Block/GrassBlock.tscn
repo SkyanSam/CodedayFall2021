@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Block/Block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tiles/pixil-frame-2.png" type="Texture" id=3]
+
+[node name="GrassBlock" type="Spatial"]
+
+[node name="Block" parent="." instance=ExtResource( 1 )]
+top_wall_texture = ExtResource( 3 )

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Block/Block.gd" type="Script" id=1]
 [ext_resource path="res://Block/spatialmaterial.tres" type="Material" id=2]
+[ext_resource path="res://assets/transparent.png" type="Texture" id=3]
 
 [sub_resource type="QuadMesh" id=1]
 
@@ -10,6 +11,9 @@ extents = Vector3( 0.5, 0.5, 0.05 )
 
 [node name="Block" type="StaticBody"]
 script = ExtResource( 1 )
+left_wall_texture = ExtResource( 3 )
+right_wall_texture = ExtResource( 3 )
+top_wall_texture = ExtResource( 3 )
 
 [node name="TopFace" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0 )
