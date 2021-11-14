@@ -1,15 +1,69 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Block/Block.gd" type="Script" id=1]
 [ext_resource path="res://Block/spatialmaterial.tres" type="Material" id=2]
 [ext_resource path="res://assets/transparent.png" type="Texture" id=3]
+[ext_resource path="res://assets/break/break_1.tres" type="Material" id=4]
+[ext_resource path="res://assets/break/break_2.tres" type="Material" id=5]
+[ext_resource path="res://assets/break/break_3.tres" type="Material" id=6]
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.5, 0.5, 0.05 )
 
-[node name="Block" type="StaticBody"]
+[sub_resource type="Animation" id=6]
+resource_name = "Block Break"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopFace Break:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RightFace Break:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LeftFace Break:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_transparent = true
+
+[node name="Block" type="StaticBody" groups=["Blocks"]]
 script = ExtResource( 1 )
 left_wall_texture = ExtResource( 3 )
 right_wall_texture = ExtResource( 3 )
@@ -17,18 +71,21 @@ top_wall_texture = ExtResource( 3 )
 
 [node name="TopFace" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0 )
+material_override = SubResource( 17 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = null
 
 [node name="RightFace" type="MeshInstance" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0 )
+material_override = SubResource( 18 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = null
 
 [node name="LeftFace" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5 )
+material_override = SubResource( 19 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = ExtResource( 2 )
@@ -44,3 +101,30 @@ shape = SubResource( 2 )
 [node name="TopFace CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.45, 2.18557e-09 )
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Block Break" = SubResource( 6 )
+
+[node name="TopFace Break" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.55, 0 )
+visible = false
+material_override = ExtResource( 6 )
+mesh = SubResource( 1 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="RightFace Break" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.6, 0, 0 )
+visible = false
+material_override = ExtResource( 6 )
+mesh = SubResource( 1 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="LeftFace Break" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6 )
+visible = false
+material_override = ExtResource( 6 )
+mesh = SubResource( 1 )
+skeleton = NodePath("")
+material/0 = SubResource( 16 )
