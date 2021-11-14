@@ -15,6 +15,7 @@ item/0/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 [node name="Spatial" type="Spatial"]
 
 [node name="GridMap" type="GridMap" parent="."]
+visible = false
 mesh_library = SubResource( 1 )
 cell_size = Vector3( 1, 1, 1 )
 data = {
@@ -27,3 +28,5 @@ __meta__ = {
 [node name="Block" parent="." instance=ExtResource( 1 )]
 
 [node name="KinematicBody" parent="." instance=ExtResource( 2 )]
+
+[node name="Spatial" type="Spatial" parent="."]
