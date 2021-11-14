@@ -2,28 +2,30 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-7.png-46ae7c62cca3141b1bd31ad708e4e957.stex"
+path.s3tc="res://.import/pixil-frame-7.png-46ae7c62cca3141b1bd31ad708e4e957.s3tc.stex"
+path.etc2="res://.import/pixil-frame-7.png-46ae7c62cca3141b1bd31ad708e4e957.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/tiles/pixil-frame-7.png"
-dest_files=[ "res://.import/pixil-frame-7.png-46ae7c62cca3141b1bd31ad708e4e957.stex" ]
+dest_files=[ "res://.import/pixil-frame-7.png-46ae7c62cca3141b1bd31ad708e4e957.s3tc.stex", "res://.import/pixil-frame-7.png-46ae7c62cca3141b1bd31ad708e4e957.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
