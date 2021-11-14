@@ -36,4 +36,4 @@ debug_shape_custom_color = Color( 0.121569, 0.698039, 0.92549, 1 )
 debug_shape_thickness = 5.0
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.914551, 0.404471, 0, -0.835684, 1.88957, 0.166538, 6.25676, 25.5792 )
+transform = Transform( 1, 0, 0, 0, 0.914551, 0.404471, 0, -0.835684, 1.88957, 1.76116, 4.45921, 12.792 )
