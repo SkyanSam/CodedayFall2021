@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Block/Block.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Fold.gd" type="Script" id=5]
 [ext_resource path="res://Entities/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Dungeon Delve.wav" type="AudioStream" id=7]
 
 [sub_resource type="PlaneMesh" id=2]
 
@@ -50,7 +51,8 @@ transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0
 
 [node name="Fold" type="Area" parent="."]
 script = ExtResource( 5 )
-enabled = false
+min_break_delay = 3
+max_break_delay = 10
 
 [node name="CollisionShape" type="CollisionShape" parent="Fold"]
 shape = SubResource( 3 )
@@ -58,5 +60,9 @@ shape = SubResource( 3 )
 [node name="enemy" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.381702, 0, 0, 0, 0.328914, 0, 0, 0, 0.375537, 3.9699, 1.4119, -1.37986 )
 speed = 100
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
 
 [connection signal="body_entered" from="Fold" to="Fold" method="_on_Fold_body_entered"]
