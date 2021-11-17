@@ -95,11 +95,47 @@ func is_room_overlap(coords : Vector2, room_matrix, level_matrix):
 				var m_x = x + coords.x
 				for a in range(-min_room_distance, min_room_distance + 1):
 					for b in range(-min_room_distance, min_room_distance + 1):
-						if not (m_y + b < 0 || m_y + b >= level_matrix.size() || m_x + a < 0 || m_x + a >= level_matrix.size()): 
-							if level_matrix[m_y + b][m_x + a] == 1:
-								return true
+						if (m_y + b < 0 || m_y + b >= level_matrix.size() || m_x + a < 0 || m_x + a >= level_matrix.size()): 
+							return true	
+						elif level_matrix[m_y + b][m_x + a] == 1:
+							return true
 	return false
 
+func match_openings(level_matrix):
+	var coords = []
+	var directions = [] # 0: RIGHT, 1: DOWN, 2: LEFT, 3: UP
+	var matches = create_map()
+	for y in range(level_matrix.size()):
+		for x in range(level_matrix.size()):
+			if (level_matrix[y][x] == 10):
+				openings.append(Vector2(x,y))
+				if (level_matrix[y+1][x] != -1): directions.append(1)
+				elif (level_matrix[y-1][x] != -1): directions.append(3)
+				elif (level_matrix[y][x+1] != -1): directions.append(2)
+				elif (level_matrix[y][x-1] != -1): directions.append(0)
+	
+	for i in coords:
+		var last_closest_item = -1
+		for j in coords:
+			if (i != j):
+				if ((coords[i] - coords[last_closest_item]).length() > (coords[i] - coords[j]).length()):
+					
+				
+				
+func search_for_closest_opening(coords : Vector2, level_matrix, target_angle : float, max_angle_difference : float):
+	var last_coords = Vector2(-1,-1)
+	for y in range(level_matrix.size()):
+		for x in range(level_matrix.size()):
+			if (coords != Vector2(x,y) && level_matrix[y][x] == 10):
+				if ((coords - last_coords).length() > (coords - Vector2(x,y)).length()):
+					var this_angle = rad2deg((coords - Vector2(x,y)).angle()) 
+					if (target_angle - max_angle_difference <= this_angle && this_angle <= target_angle + max_angle_difference):
+						last_coords = Vector2(x,y)
+	if (last_coords == Vector2(-1,-1)):
+		return null
+	else:
+		return last_coords
+			
 func try_create_room(r, room_matrix, level_matrix, tries): # returns null or vector2
 	if tries == 0:
 		return null
