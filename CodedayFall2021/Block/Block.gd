@@ -25,6 +25,8 @@ func _process(delta):
 	var top_mat = SpatialMaterial.new()
 	top_mat.albedo_texture = top_wall_texture
 	$TopFace.material_override = top_mat
+	
+	rotation_degrees.z = 0
 
 func break(t):
 	yield(get_tree().create_timer(t),"timeout")

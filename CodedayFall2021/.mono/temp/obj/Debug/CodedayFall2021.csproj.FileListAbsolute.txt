@@ -1,0 +1,9 @@
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\bin\Debug\CodedayFall2021.dll
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\bin\Debug\CodedayFall2021.pdb
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.csproj.AssemblyReference.cache
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.AssemblyInfoInputs.cache
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.AssemblyInfo.cs
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.csproj.CoreCompileInputs.cache
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.dll
+D:\Documents\GodotProjects\CodedayFall2021\CodedayFall2021\.mono\temp\obj\Debug\CodedayFall2021.pdb
